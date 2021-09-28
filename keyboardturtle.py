@@ -4,8 +4,10 @@ class KeyboardTurtle(Turtle):
   # our 'wrapper' class of the Turtle class
   def __init__(self, 
                window,  
-               straight = "Up", 
-               turn_right = "Right", 
+               straight = "W", 
+               turn_right = "D", 
+               turn_left = "A",
+               backward = "S",
                other_player = None):
     # Runs Keyboard Turtle Constructor as well as the Turtle Constructor
     Turtle.__init__(self)
@@ -14,6 +16,9 @@ class KeyboardTurtle(Turtle):
     self.window = window
     self.straight = straight
     self.turn_right = turn_right
+    self.turn_left = turn_left
+    self.backward = backward
+
     self.other_player = other_player
 
     #set turtle starting states
@@ -24,6 +29,8 @@ class KeyboardTurtle(Turtle):
     # Sets up keyboard command examples
     self.window.onkey(self.go_right, self.turn_right)
     self.window.onkey(self.go_forward, self.straight)
+    self.window.onkey(self.go_left, self.left)
+    self.window.onkey(self.go_backward, self.backward)
 
     #sets up controlling variables (y not implemented)
     self.movement_speed = 5
@@ -31,7 +38,7 @@ class KeyboardTurtle(Turtle):
     self.collision_distance = 20
 
   # Movement Methods
-  def go_forward(self):
+  def go_forward(self): 
     self.forward(self.movement_speed)
     if self.check_collision(self.other_player):
       print("crash")
@@ -39,6 +46,13 @@ class KeyboardTurtle(Turtle):
       
   def go_right(self):
     self.right(self.turn_speed)
+
+  def go_left(self):
+    self.left(self.turn_speed)
+
+  def go_backward(self):
+    self.backward(self.turn_speed)
+
 
 
   # Useful Methods
