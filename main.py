@@ -1,7 +1,7 @@
 from turtle import Screen
 from keyboardturtle import KeyboardTurtle
 from clickableturtle import ClickableTurtle
-from movingturtle import MovingTurtle
+from movingturtle import movingTurtle
 
 # set up instance of the screen
 window = Screen()
@@ -14,15 +14,16 @@ button = ClickableTurtle()
 
 #set up players
 player_1 = KeyboardTurtle(window)
-player_2 = KeyboardTurtle(window, "w", "d", "a", "s")
+player_2 = KeyboardTurtle(window, "w", "a", "s", "d")
 
-player_1.goto(100,0)
+player_1.goto(100,100)
+player_2.goto(0,100)
 
 # set target of other player(our collison check) to the opposite player
 player_1.other_player = player_2
 player_2.other_player = player_1
 
-moveT = MovingTurtle(screen_width)
+moveT = movingTurtle(screen_width, player_1, player_2)
 
 # This is needed to listen for inputs
 window.listen()

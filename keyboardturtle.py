@@ -5,9 +5,9 @@ class KeyboardTurtle(Turtle):
   def __init__(self, 
                window,  
                straight = "Up", 
-               turn_right = "Right", 
                turn_left = "Left",
-               backward = "Down",
+               down = "Down",
+               turn_right = "Right",
                other_player = None):
     # Runs Keyboard Turtle Constructor as well as the Turtle Constructor
     Turtle.__init__(self)
@@ -45,7 +45,7 @@ class KeyboardTurtle(Turtle):
       quit()
 
 
-  """
+
   def go_right(self):
     self.right(self.turn_speed)
 
@@ -53,8 +53,8 @@ class KeyboardTurtle(Turtle):
     self.left(self.turn_speed)
 
   def go_backward(self):
-    self.backward(self.turn_speed)
-  """
+    self.backward(self.movement_speed)
+
 
 
   # Useful Methods
